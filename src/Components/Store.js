@@ -1,10 +1,9 @@
 import {createStore, combineReducers, applyMiddleware,compose} from "redux"
 import {thunk} from "redux-thunk"
-import { allBagsReducer, bagDetailReducer, cartAddReducer, checkoutReducer, featuredBagsReducer, heightAddReducer, homeReducer, personalRequestReducer, wishAddReducer } from "./Reducers"
+import { allBagsReducer, bagDetailReducer, cartAddReducer, checkoutReducer, featuredBagsReducer, heightAddReducer, personalRequestReducer, wishAddReducer } from "./Reducers"
 
 
 const reducer = combineReducers({
-    home:homeReducer,
     cartAdd : cartAddReducer,
     height : heightAddReducer,
     wishAdd : wishAddReducer,

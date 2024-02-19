@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import './Css/Others.css';
 import './Css/Home.css';
+import './Css/Stripe.css';
 import './Css/Media.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -17,7 +18,4 @@ root.render(
   </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

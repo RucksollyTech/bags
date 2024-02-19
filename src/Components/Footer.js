@@ -1,8 +1,29 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
     const date = new Date().getFullYear()
+    const [newsLetter, setNewsLetter] = useState(false)
+    const [newsLetterForm, setNewsLetterForm] = useState("")
+    const [success, setSuccess] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+        setSuccess(false);
+        setLoading(true);
+        try {
+            const {data} = await axios.post(
+                `${process.env.REACT_APP_BASE_URL}/api/newsletter`,
+                {email:newsLetterForm}
+            );
+            setLoading(false);
+            setSuccess(true);
+        } catch (error) {
+            setLoading(false);
+            setSuccess(false);
+        }
+    }
     return (
         <div>
             <div className="Foot">
@@ -25,18 +46,18 @@ const Footer = () => {
                             <div className="footerBody">
                                 
                                 <div className='pb-2'>
-                                    <Link to={"/"}>
+                                    <Link to={"/bags/list"}>
                                         All Bags
                                     </Link>
                                 </div>
                                 <div className='pb-2'>
-                                    <Link to={"/"}>
-                                        New Arrival
+                                    <Link to={"/wish/list"}>
+                                        Wish List
                                     </Link>
                                 </div>
                                 <div className='pb-2'>
-                                    <Link to={"/"}>
-                                        Custom Request
+                                    <Link to={"/products/cart"}>
+                                        Cart
                                     </Link>
                                 </div>
                             </div>
@@ -46,9 +67,33 @@ const Footer = () => {
                                 EMAIL SIGN-UP
                             </h1>
                             <div className="footerBody">
-                                <span className='anchor pointer'>Sign up</span> for KrysPatra emails and 
+                                <span onClick={()=>setNewsLetter(!newsLetter)} className='anchor pointer'>Sign up</span> for KrysPatra emails and 
                                 receive the latest news on exclusive online pre-launches 
                                 and new collections.
+                            </div>
+                            <div className={`relative newLetterContainer ${newsLetter && "display"}`}>
+                                <form onSubmit={handleSubmit}>
+                                    {success ? 
+                                        <div className="text-success bold7">Success!</div> 
+                                    : 
+                                        <div className='newLetter'>
+                                            <div className="pb-1">
+                                                <img className='pointer' onClick={()=>setNewsLetter(!newsLetter)} width="20" height="20" src="https://img.icons8.com/ios/20/collapse-arrow--v2.png" alt="collapse-arrow--v2"/>
+                                            </div>
+                                            <div className='form-group'>
+                                                <input 
+                                                value={newsLetterForm}
+                                                onChange={(e)=>setNewsLetterForm(e.target.value)}
+                                                type="email" required placeholder='Enter email address' className='form-control' />
+                                            </div>
+                                            <div className="mt-2">
+                                                <button className='productButton' disabled={loading}>
+                                                    {loading ? "Loading..." : "Submit"}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,15 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 
-const QuestionModal = ({setShow,head,msg,...props}) => {
+const QuestionModal = ({setShow,head,msg,val,removeFromCart,...props}) => {
+    const handleRemove = () =>{
+        setShow(false)
+        if(val){ 
+            removeFromCart(val)
+        }else{
+            removeFromCart()
+        }
+    }
     return <Modal
         {...props}
         aria-labelledby="contained-modal-title-vcenter"
@@ -19,7 +27,7 @@ const QuestionModal = ({setShow,head,msg,...props}) => {
                 <button onClick={()=>setShow(false)} className='productButton mr-1'>
                     Close
                 </button>
-                <button className='productButton xx ml-1'>
+                <button onClick={handleRemove} className='productButton xx ml-1'>
                     Remove
                 </button>
             </div>

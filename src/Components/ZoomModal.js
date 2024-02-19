@@ -76,8 +76,7 @@ const ZoomModal = ({setShow,zoom,...props}) => {
                                     }} 
                                         draggable="false"
                                         onClick={()=>zoomControl("in")}
-                                        className="img" 
-                                        src={i} 
+                                        src={`${process.env.REACT_APP_BASE_URL}${i}`} 
                                         alt="Bag" 
                                     />
                                 </motion.div>

@@ -3,29 +3,7 @@ import { ADD_CART_FAIL, ADD_CART_REQUEST, ADD_CART_SUCCESS, ADD_WISH_FAIL, ADD_W
 import { ADJUST_HEIGHT_FAIL, ADJUST_HEIGHT_REQUEST, ADJUST_HEIGHT_SUCCESS } from "./Constants"
 
 
-export const homeAction =() => async(dispatch,getState) =>{
-    
-    try{
-        dispatch({type: HOME_VIEW_REQUEST})
-        
-        const headers= {
-            "Content-type":"application/json"
-        }
-        const {data} = await axios.post(
-            `${process.env.REACT_APP_BASE_URL}/api/home`,
-            headers
-        )
-        dispatch({
-            type: HOME_VIEW_SUCCESS,
-            payload: data
-        })
-    } catch(error){
-        dispatch({
-            type : HOME_VIEW_FAIL,
-            payload : error.response?.data?.detail ? error.response.data.detail : error.message
-        })
-    }
-}
+
 export const cartAddAction =() => async(dispatch) =>{
     
     try{
@@ -93,13 +71,14 @@ export const bagDetailAction =(x=0) => async(dispatch,getState) =>{
         })
     }
 }
-export const allBagsAction =(route) => async(dispatch,getState) =>{
+export const allBagsAction =(route,uri=null) => async(dispatch,getState) =>{
     try{
         dispatch({type: ALL_BAGS_REQUEST})
         const headers= {
             "Content-type":"application/json"
         }
-        const {data} = await axios.get(
+        const url = uri ? `${process.env.REACT_APP_BASE_URL}/api/search${uri?.search && `?query=${uri?.search}`}${uri?.page && `&page=${uri?.page}`}` : ''
+        const {data} = await axios.get(uri ? url :
             `${process.env.REACT_APP_BASE_URL}/api/${route ? "new_bags" : "bags"}`,
             headers
         )
@@ -114,29 +93,6 @@ export const allBagsAction =(route) => async(dispatch,getState) =>{
         })
     }
 }
-
-export const featuredBagsAction =() => async(dispatch,getState) =>{
-    try{
-        dispatch({type: FEATURED_BAGS_REQUEST})
-        const headers= {
-            "Content-type":"application/json"
-        }
-        const {data} = await axios.get(
-            `${process.env.REACT_APP_BASE_URL}/api/featured_bags`,
-            headers
-        )
-        dispatch({
-            type: FEATURED_BAGS_SUCCESS,
-            payload: data
-        })
-    }catch(error){
-        dispatch({
-            type : FEATURED_BAGS_FAIL,
-            payload : error.response?.data?.detail ? error.response.data.detail : error.message
-        })
-    }
-}
-
 
 export const checkoutAction =(x) => async(dispatch,getState) =>{
     

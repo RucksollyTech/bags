@@ -14,7 +14,7 @@
 }
 .Logo{
     font-size: 30px;
-    font-weight: 450;
+    font-weight: 600;
     letter-spacing: 2.5px;
 }
 .logoContainer span,
@@ -34,6 +34,7 @@
     background-image: linear-gradient(to right bottom, var(--bg), var(--mainBg));
     padding: 20px;
 }
+
 .bagWords *{
     font-size: 13px;
     font-weight: 550;
@@ -69,7 +70,15 @@
     top: 30px;
     right: 40px;
 }
-
+.goldDot{
+    background-color: var(--wish);
+    border-radius: 100%;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    top: 0;
+    right: -5px;
+}
 
 
 
@@ -140,6 +149,13 @@
 .absoluteScroll {
     position: absolute;
     top: 0;
+    width: 100%;
+}
+.absoluteScroll img,
+.detailsCarouselSm div,
+.detailsCarouselSm div img{
+    width: 100%;
+    cursor: pointer;
 }
 .bagDetails{
     padding: 0 20px;
@@ -350,6 +366,10 @@
     height: 100vh;
     overflow: auto;
 }
+.centerX.dag img{
+    max-width: 200px;
+    margin: auto;
+}
 .wishList{
     background: var(--cartBg);
     padding: 40px 20px;
@@ -397,6 +417,12 @@
 .cancelWishList{
     position: absolute;
     top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+.cancelShw{
+    position: absolute;
+    top: 70px;
     right: 15px;
     cursor: pointer;
 }
@@ -475,9 +501,29 @@
     display: none;
 }
 
-
-
-
-
-
+.checkOut{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.cart div.fade.modal.show{
+    padding: 0 !important;
+}
+.shpDet .form-group label{
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 700;
+}
+.newLetterContainer{
+    overflow-y: hidden;
+    padding-top: 5px;
+}
+.newLetter{
+    margin-top: -123px;
+    transition: all 0.5s ease;
+}
+.newLetterContainer.display .newLetter{
+    margin-top: 0;
+    transition: all 0.5s ease;
+}
 

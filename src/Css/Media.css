@@ -38,6 +38,9 @@
         grid-template-columns: 1fr 1fr;
         
     }
+    .detailsCarouselSm div{
+        padding-top: 20px;
+    }
 }
 @media (max-width: 767px) {
     .cartContent{
@@ -101,6 +104,10 @@
 }
 
 @media (max-width:600px) {
+    .checkOut{
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
     .questionModal{
         padding: 30px;
     }

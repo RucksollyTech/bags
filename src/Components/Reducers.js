@@ -1,18 +1,7 @@
 import { ADD_CART_FAIL, ADD_CART_REQUEST, ADD_CART_SUCCESS,  ADD_WISH_FAIL, ADD_WISH_REQUEST, ADD_WISH_SUCCESS, ALL_BAGS_FAIL, ALL_BAGS_REQUEST, ALL_BAGS_SUCCESS, BAG_DETAIL_FAIL, BAG_DETAIL_REQUEST, BAG_DETAIL_SUCCESS, CHECKOUT_FAIL, CHECKOUT_REQUEST, CHECKOUT_SUCCESS, FEATURED_BAGS_FAIL, FEATURED_BAGS_REQUEST, FEATURED_BAGS_SUCCESS, HOME_VIEW_FAIL, HOME_VIEW_REQUEST, HOME_VIEW_SUCCESS, PERSONALIZED_BAG_FAIL, PERSONALIZED_BAG_REQUEST, PERSONALIZED_BAG_RESET, PERSONALIZED_BAG_SUCCESS } from "./Constants"
 import { ADJUST_HEIGHT_FAIL, ADJUST_HEIGHT_REQUEST, ADJUST_HEIGHT_SUCCESS } from "./Constants"
 
-export const homeReducer =(state={},action)=>{
-    switch(action.type){
-        case HOME_VIEW_REQUEST:
-            return {loading:true,...state}
-        case HOME_VIEW_SUCCESS:
-            return {loading:false, ...action.payload}
-        case HOME_VIEW_FAIL:
-            return {loading: false,error:action.payload}
-        default:
-            return state
-    }
-}
+
 export const heightAddReducer =(state={},action)=>{
     switch(action.type){
         case ADJUST_HEIGHT_REQUEST:
@@ -93,7 +82,7 @@ export const allBagsReducer =(state={},action)=>{
         case ALL_BAGS_REQUEST:
             return {loading:true,...state}
         case ALL_BAGS_SUCCESS:
-            return {loading:false, bags:action.payload}
+            return {loading:false, ...action.payload}
         case ALL_BAGS_FAIL:
             return {loading: false,error:action.payload}
         default:

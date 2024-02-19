@@ -1,4 +1,4 @@
-export const DELIVERYFEE = 6
+export const DELIVERY_FEE = 6
 
 export const HOME_VIEW_REQUEST = "HOME_VIEW_REQUEST"
 export const HOME_VIEW_SUCCESS = "HOME_VIEW_SUCCESS"

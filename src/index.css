@@ -2,12 +2,16 @@
   font-family: 'FONT';
   src: url('./Css/Font/Quicksand-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'FONT2';
+  src: url('./Css/Font/Intrepid.ttf') format('truetype');
+}
 /* @font-face {
   font-family: 'FONT2';
   src: url('./Css/Font/Ubuntu-Medium.ttf') format('truetype');
 } */
 @font-face {
-  font-family: 'FONT2';
+  font-family: 'FONT3';
   src: url('./Css/Font/Oswald-VariableFont_wght.ttf') format('truetype');
 }
 
@@ -33,6 +37,7 @@ body {
   --white: #fff;
   --otherBorder: 1px solid #191101;
   --cartBg: #F6F5F3;
+  --wish: #D6852A;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -59,6 +64,15 @@ a{
 }
 .font_20{
   font-size: 20px;
+}
+.font_24{
+  font-size: 24px;
+}
+.bold6{
+  font-weight: 600;
+}
+.bold7{
+  font-weight: 700;
 }
 .centerY{
   display: flex;
@@ -129,8 +143,12 @@ ul {
   bottom: 0;
   max-width: 100%;
 }
-
-
+.Loader{
+  margin: 150px 0 0 100px;
+}
+.py_1{
+  padding: 10px 0;
+}
 
 
 

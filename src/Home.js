@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import BagList from './Components/BagList'
+import { useDispatch, useSelector } from 'react-redux'
+import { allBagsAction } from './Components/Action'
 
 const Home = () => {
+    const dispatch= useDispatch()
+    const allBags = useSelector(state => state.allBags)
+    const {loading,bags} = allBags
+
+    useEffect(()=>{
+        dispatch(allBagsAction(false))
+    },[])
     return (
         <div>
             <div className='standardWidth'>
@@ -16,7 +25,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <BagList />
+            <BagList loading={loading} data={bags} />
         </div>
     )
 }
