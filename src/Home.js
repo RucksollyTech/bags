@@ -16,7 +16,7 @@ const Home = () => {
             <div className='standardWidth'>
                 <div className="landing">
                     <div className="header1">
-                        <h1>
+                        <h1 className='font2'>
                             Best-Selling Handbags
                         </h1>
                     </div>
