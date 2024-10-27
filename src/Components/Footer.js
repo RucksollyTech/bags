@@ -35,8 +35,8 @@ const Footer = () => {
                             </h1>
                             <div className="footerBody">
                                 Our Client Advisors are available to 
-                                assist you by phone at <a className='anchor' href="tel:+17252508777">+1 (725) 250-8777</a>
-                                . You can also <a className='anchor' href="mailto:kryspatra.services@gmail.com">email us</a>.
+                                assist you by phone at <a className='anchor' href="tel:+17086633189">+1 (708) 663-3189</a>
+                                . You can also <a className='anchor' href="mailto:kleopatravargas@gmail.com">email us</a>.
                             </div>
                         </div>
                         <div>
@@ -67,7 +67,7 @@ const Footer = () => {
                                 EMAIL SIGN-UP
                             </h1>
                             <div className="footerBody">
-                                <span onClick={()=>setNewsLetter(!newsLetter)} className='anchor pointer'>Sign up</span> for KrysPatra emails and 
+                                <span onClick={()=>setNewsLetter(!newsLetter)} className='anchor pointer'>Sign up</span> for Kleopatra Vargas emails and 
                                 receive the latest news on exclusive online pre-launches 
                                 and new collections.
                             </div>
@@ -101,7 +101,7 @@ const Footer = () => {
             </div>
             <div className="Copyright">
                 <div className="standardWidth">
-                    © Copyright {date} Krispatra. All Rights Reserved.
+                    © Copyright {date} kleopatra Vargas. All Rights Reserved.
                 </div>
             </div>
         </div>

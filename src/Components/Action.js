@@ -110,7 +110,6 @@ export const checkoutAction =(x) => async(dispatch,getState) =>{
             type: CHECKOUT_SUCCESS,
             payload: data
         })
-
     } catch(error){
         dispatch({
             type : CHECKOUT_FAIL,

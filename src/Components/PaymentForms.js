@@ -29,7 +29,7 @@ const PaymentForms = () => {
         const { error } = await stripe.confirmPayment({
           elements,
           confirmParams: {
-            return_url: `https://kryspatra/success`,
+            return_url: `https://www.kleopatravargas.shop/success`,
           },
           receipt_email: email,
         });

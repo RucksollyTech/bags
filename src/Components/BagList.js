@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
-import { useState } from 'react'
-import { useEffect } from 'react'
 import Empty from './Empty'
 
 const BagList = ({loading,data}) => {

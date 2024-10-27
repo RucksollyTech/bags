@@ -31,6 +31,7 @@ body {
 }
 :root{
   --defaultColor: #19110b;
+  --defaultColorMuted: #8C8885;
   --mainBg: #f6f5f3;
   --bg: rgb(226,224,223);
   --border: 1px solid #EAE8E4;

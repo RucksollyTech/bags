@@ -22,8 +22,9 @@ const Cart = () => {
     const [itemToGo2, setItemToGo2] = useState()
     const [checkForTripDetails,setCheckForTripDetails] = useState(JSON.parse(localStorage.getItem(`checkOutUserInfo`)))
     const [formData, setFormData] = useState(
-        checkForTripDetails ? {...checkForTripDetails.items} :{
+        checkForTripDetails ? {...checkForTripDetails.items,size: ""} :{
             name: '',
+            size: '',
             users_address: '',
             email: '',
             phone: '',
@@ -66,6 +67,9 @@ const Cart = () => {
     }
     const submitHandler = (e)=>{
         e.preventDefault()
+        if(!formData?.size){
+            return
+        }
         const my_data = {
             items: {
                 ...formData, 
@@ -204,7 +208,7 @@ const Cart = () => {
                 }
             </div>
             <div className="bg-white ">
-                {cart && 
+                {(cart && cart.length !== 0) &&
                     <div className='rightSideContents'>
                         <div className="twoEquo">
                             <span>
@@ -330,10 +334,23 @@ const Cart = () => {
                 
                 <Modal.Body>
                     <form onSubmit={submitHandler}>
+                        <div className="checkOut pt-4">
+                            <div className="form-group ">
+                                <label className='font_17 text-danger'>Enter your size</label>
+                                <input
+                                    required 
+                                    value={formData.size}
+                                    onChange={(e)=>setFormData({...formData,size:e.target.value})} 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Eg: XXL"
+                                />
+                            </div>
+                        </div>
                         <div className="font_17 pt-4">
                             Shipping Details
                         </div>
-                        {(checkForTripDetails && checkForTripDetails.items.checked) ? 
+                        {(checkForTripDetails && checkForTripDetails?.items?.checked) ? 
                             <div>
                                 <div className='checkOut pt-3 shpDet'>
                                     <div className="form-group">
@@ -375,7 +392,7 @@ const Cart = () => {
                                     </div>
                                 </div>
                                 <div className="mt-4">
-                                    <button role='submit' className='productButton'>
+                                    <button role='submit' disabled={!formData.size} className="productButton">
                                         Proceed to checkout
                                     </button>
                                 </div>
@@ -477,7 +494,7 @@ const Cart = () => {
                                 <div className="input-group mt-3 centerY">
                                     <div className="input-group-text w-100">
                                         <input 
-                                            value={formData.checked} 
+                                            value={formData?.checked} 
                                             onChange={(e)=>setFormData({...formData,checked:e.target.checked})}
                                             type="checkbox" 
                                             aria-label="Save my shipping details" 
@@ -488,7 +505,7 @@ const Cart = () => {
                                     </div>
                                 </div>
                                 <div className="mt-4">
-                                    <button role='submit' className='productButton'>
+                                    <button disabled={!formData.size} role='submit' className='productButton'>
                                         Proceed to checkout
                                     </button>
                                 </div>

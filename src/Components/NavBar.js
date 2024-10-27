@@ -58,10 +58,10 @@ const NavBar = () => {
                 }
             </div>
             <Link to={"/"} className='Logo font2'>
-                KRYS PATRA
+                KLEOPATRA VARGAS
             </Link>
             <div className='logoContainer centerY'>
-                <a href="tel:+17252508777">
+                <a href="tel:+17086633189">
                     Call Us
                 </a>
                 <Link to={"/wish/list"} className='relative'>

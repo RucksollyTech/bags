@@ -39,6 +39,7 @@
     font-size: 13px;
     font-weight: 550;
     margin-bottom: 4px;
+    padding-top: 10px;
 }
 .searchBg{
     position: absolute;
@@ -174,6 +175,16 @@
 }
 .productName{
     padding: 5px 0;
+}
+.productButtonMuted{
+    background-color: var(--defaultColorMuted);
+    color: var(--white);
+    border-radius: 100vmax;
+    border: var(--otherBorder);
+    padding: 13.5px 20px;
+    font-weight: 600;
+    width: 100%;
+    height: 50px;
 }
 .productButton{
     background-color: var(--defaultColor);

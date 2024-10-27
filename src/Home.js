@@ -9,7 +9,7 @@ const Home = () => {
     const {loading,bags} = allBags
 
     useEffect(()=>{
-        dispatch(allBagsAction(false))
+        dispatch(allBagsAction(false,null))
     },[])
     return (
         <div>
