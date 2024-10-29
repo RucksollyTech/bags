@@ -29,7 +29,7 @@ const BagList = ({loading,data}) => {
                 ))
             :
                 <div className='p-4'>
-                    <Empty msg={"Can't find a bag"} />
+                    <Empty msg={"Can't find an item"} />
                 </div>
             }
         </div>

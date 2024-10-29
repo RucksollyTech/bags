@@ -94,7 +94,7 @@ const NavBar = () => {
                                 </samp>
                             </Link>
                             <Link to={"/bags/list"}>
-                                <span>All Bags </span>
+                                <span>Clothing & Accessories</span>
                                 <samp>
                                     <img width="24" height="24" className='d_none' src="https://img.icons8.com/material-rounded/24/3F3F1C/forward.png" alt="forward"/>
                                     <img width="24" height="24" className='d_none1' src="https://img.icons8.com/material-rounded/24/3F3F1C/forward.png" alt="forward"/>
@@ -115,7 +115,7 @@ const NavBar = () => {
                                 </samp>
                             </Link>
                             <a href="tel:+17252508777">
-                                <span>Call </span>
+                                <span>Contact us</span>
                                 <samp>
                                     <img width="24" height="24" className='d_none' src="https://img.icons8.com/material-rounded/24/3F3F1C/forward.png" alt="forward"/>
                                     <img width="24" height="24" className='d_none1' src="https://img.icons8.com/material-rounded/24/3F3F1C/forward.png" alt="forward"/>
