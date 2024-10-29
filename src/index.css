@@ -134,6 +134,7 @@ button{
 .heightRow{
   height: 88vh;
   overflow-y: auto;
+  padding-bottom: 40px;
 }
 
 ul {

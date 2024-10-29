@@ -95,9 +95,11 @@ const Cart = () => {
             <div className="cartContent">
                 <div className="detailsCarouselSm">
                     <div className='py-5'>
-                        <button onClick={handleShow} className='productButton'>
-                            Proceed to checkout
-                        </button>
+                        {(cart && cart.length !== 0) &&
+                            <button onClick={handleShow} className='productButton'>
+                                Proceed to checkout
+                            </button>
+                        }
                         <div className='pt-3 text-center'>
                             <Link className='anchor' to={"/bags/list"}>
                                 Continue shopping
@@ -234,11 +236,6 @@ const Cart = () => {
                                 $0.00
                             </span>
                         </div>
-                        {/* <div className="mt-2">
-                            <small className='text-muted'>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, nihil.
-                            </small>
-                        </div> */}
                         <div className="twoEquo mt-4 font_17">
                             <span>
                                 Total
