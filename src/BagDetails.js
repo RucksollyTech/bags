@@ -82,17 +82,17 @@ const BagDetails = () => {
                     {/* change Img */}
                     {bg?.model_image &&
                         <div onClick={()=>zoomer(bg.model_image)} >
-                            <img src={`${process.env.REACT_APP_BASE_URL}${bg.model_image}`} alt="Bag" onClick={()=>zoomer(bg.model_image)} />
+                            <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${bg.model_image}`} alt="Bag" onClick={()=>zoomer(bg.model_image)} />
                         </div>
                     }
                     {bg?.cover_image &&
                         <div onClick={()=>zoomer(bg.cover_image)} >
-                            <img src={`${process.env.REACT_APP_BASE_URL}${bg.cover_image}`} alt="Bag" onClick={()=>zoomer(bg.cover_image)} />
+                            <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${bg.cover_image}`} alt="Bag" onClick={()=>zoomer(bg.cover_image)} />
                         </div>
                     }
                     {bg?.other_images.map((item)=>(
                         <div key={item.id} onClick={()=>zoomer(item.image)} >
-                            <img src={`${process.env.REACT_APP_BASE_URL}${item.image}`} alt="Bag" onClick={()=>zoomer(item.image)} />
+                            <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${item.image}`} alt="Bag" onClick={()=>zoomer(item.image)} />
                         </div>
                     ))}
                 </div>
@@ -110,21 +110,21 @@ const BagDetails = () => {
                     {bg?.model_image &&
                         <Carousel.Item>
                             <div onClick={()=>zoomer(bg.model_image)} >
-                                <img src={`${process.env.REACT_APP_BASE_URL}${bg.model_image}`} alt="Bag" onClick={()=>zoomer(bg.model_image)} />
+                                <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${bg.model_image}`} alt="Bag" onClick={()=>zoomer(bg.model_image)} />
                             </div>
                         </Carousel.Item>
                     }
                     {bg?.cover_image &&
                         <Carousel.Item>
                             <div onClick={()=>zoomer(bg.cover_image)} >
-                                <img src={`${process.env.REACT_APP_BASE_URL}${bg.cover_image}`} alt="Bag" onClick={()=>zoomer(bg.cover_image)} />
+                                <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${bg.cover_image}`} alt="Bag" onClick={()=>zoomer(bg.cover_image)} />
                             </div>
                         </Carousel.Item>
                     }
                     {bg?.other_images.map((item)=>(
                         <Carousel.Item key={item.id}>
                             <div onClick={()=>zoomer(item.image)} >
-                                <img src={`${process.env.REACT_APP_BASE_URL}${item.image}`} alt="Bag" onClick={()=>zoomer(item.image)} />
+                                <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${item.image}`} alt="Bag" onClick={()=>zoomer(item.image)} />
                             </div>
                         </Carousel.Item>
                     ))}
@@ -180,7 +180,7 @@ const BagDetails = () => {
                         <div className="gg">
                             <div className='theContent img'>
                                 {/* change Img */}
-                                <img src={`${process.env.REACT_APP_BASE_URL}${bg.cover_image}`} alt={bg.name} />
+                                <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${bg.cover_image}`} alt={bg.name} />
                             </div>  
                             <div className='padMe'>
                                 <div className="twoEquo">

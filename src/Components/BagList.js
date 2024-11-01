@@ -12,7 +12,7 @@ const BagList = ({loading,data}) => {
                     <div className="theContent" key={data.id + parseInt(process.env.REACT_APP_CONSTANT)}>
                         <Link to={`/product/details/${data.id + parseInt(process.env.REACT_APP_CONSTANT)}`}>
                             {/* change Img */}
-                            <img src={`${process.env.REACT_APP_BASE_URL}${data.cover_image}`} alt={data.name} />
+                            <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${data.cover_image}`} alt={data.name} />
                             <div className="bagWords">
                                 <div>
                                     {data.name}

@@ -123,7 +123,7 @@ const Cart = () => {
                             <div className='shopLeft'>
                                 <div className='theContent relative' onClick={()=>zoomer([item?.cover_image, item?.model_image,...item?.other_images.map(img => img.image)])}>
                                      {/* change Img */}
-                                    <img src={`${process.env.REACT_APP_BASE_URL}${item.cover_image}`} alt={item.name} />
+                                    <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${item.cover_image}`} alt={item.name} />
                                     <img className='zoomIcon' width="20" height="20" src="https://img.icons8.com/external-icongeek26-outline-icongeek26/20/external-zoom-in-graphic-design-icongeek26-outline-icongeek26.png" alt="external-zoom-in-graphic-design-icongeek26-outline-icongeek26"/>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ const Cart = () => {
                                 <div className='border_bottom padderCart lilSmImgContainer'>
                                     <div className='lilSmImg relative' onClick={()=>zoomer([item?.cover_image, item?.model_image,...item?.other_images.map(img => img.image)])}>
                                         {/* change Img */}
-                                        <img src={`${process.env.REACT_APP_BASE_URL}${item.cover_image}`} alt={item.name} />
+                                        <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${item.cover_image}`} alt={item.name} />
                                         <img className='zoomIcon' width="20" height="20" src="https://img.icons8.com/external-icongeek26-outline-icongeek26/20/external-zoom-in-graphic-design-icongeek26-outline-icongeek26.png" alt="external-zoom-in-graphic-design-icongeek26-outline-icongeek26"/>
                                     </div>
                                     <div className='pdSmSc'>
@@ -268,7 +268,7 @@ const Cart = () => {
                             <div className='cartViews py-4 border-bottom'>
                                 <div className="theContent">
                                     {/* change Img */}
-                                    <img src={`${process.env.REACT_APP_BASE_URL}${itemToGo2?.cover_image}`} alt={itemToGo2?.name} />
+                                    <img src={`${process.env.REACT_APP_BASE_URL === "http://127.0.0.1:8000" ? process.env.REACT_APP_BASE_URL : "" }${itemToGo2?.cover_image}`} alt={itemToGo2?.name} />
                                 </div>
                                 <div className="bagWords p-3">
                                     <div className='font_14'>
