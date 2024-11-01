@@ -46,8 +46,8 @@ const Footer = () => {
                             <div className="footerBody">
                                 
                                 <div className='pb-2'>
-                                    <Link to={"/bags/list"}>
-                                        All Bags
+                                    <Link to={"/items/list"}>
+                                        All items
                                     </Link>
                                 </div>
                                 <div className='pb-2'>

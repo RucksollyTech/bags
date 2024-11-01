@@ -101,7 +101,7 @@ const Cart = () => {
                             </button>
                         }
                         <div className='pt-3 text-center'>
-                            <Link className='anchor' to={"/bags/list"}>
+                            <Link className='anchor' to={"/items/list"}>
                                 Continue shopping
                             </Link>
                         </div>
@@ -112,7 +112,7 @@ const Cart = () => {
                         My Shopping Cart <span>({Counter(cart ? cart : [])})</span>
                     </div>
                     <div className='detailsCarouselLg'>
-                        <Link className='anchor' to={"/bags/list"}>
+                        <Link className='anchor' to={"/items/list"}>
                             Continue shopping
                         </Link>
                     </div>

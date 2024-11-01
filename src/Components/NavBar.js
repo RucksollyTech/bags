@@ -48,7 +48,7 @@ const NavBar = () => {
                 <span className='pointer' onClick={()=>setShow(true)} >
                     Menu
                 </span>
-                {(pathname === "/" || pathname === "/bags/list") &&
+                {(pathname === "/" || pathname === "/items/list") &&
                     <>
                         <img onClick={()=>setSearchOpen(true)} className='imgLg pointer' width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/search--v1.png" alt="search--v1"/>
                         <span onClick={()=>setSearchOpen(true)} className='pointer'>
@@ -93,7 +93,7 @@ const NavBar = () => {
                                     <img width="24" height="24" className='d_none1' src="https://img.icons8.com/material-rounded/24/3F3F1C/forward.png" alt="forward"/>
                                 </samp>
                             </Link>
-                            <Link to={"/bags/list"}>
+                            <Link to={"/items/list"}>
                                 <span>Clothing & Accessories</span>
                                 <samp>
                                     <img width="24" height="24" className='d_none' src="https://img.icons8.com/material-rounded/24/3F3F1C/forward.png" alt="forward"/>
@@ -126,7 +126,7 @@ const NavBar = () => {
                     </div>
                 </div>
             </div>
-            {(pathname === "/" || pathname === "/bags/list") &&
+            {(pathname === "/" || pathname === "/items/list") &&
                 <div className={searchOpen ? "searchBg" : "d_none"}>
                     <div className='searchInputContainer'>
                         <img className='imgLg' width="20" height="20" src="https://img.icons8.com/ios-glyphs/20/search--v1.png" alt="search--v1"/>

@@ -23,7 +23,7 @@ function App() {
                     <Route path="/product/details/:id" element={<BagDetails />} />
                     <Route path="/products/cart" element={<Cart />} />
                     <Route path="/wish/list" element={<Wishlist />} />
-                    <Route path="/bags/list" element={<AllBags />} />
+                    <Route path="/items/list" element={<AllBags />} />
                     <Route path="/success" element ={<Success />} />
                     <Route path="/unsubscribe/:email" element ={<Unsubscribe />} />
 					<Route path="/checkout/:link/:type" element ={<StripeCheckout />} />
