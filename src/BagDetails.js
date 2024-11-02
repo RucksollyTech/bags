@@ -11,6 +11,7 @@ import AddToCart from './Components/AddToCart'
 import Loader from './Components/Loader'
 import CheckWishList from './Components/CheckWishList'
 import AddToWishList from './Components/AddToWishList'
+import Skeleton from 'react-loading-skeleton'
 
 const BagDetails = () => {
     const dispatch = useDispatch()
@@ -78,7 +79,7 @@ const BagDetails = () => {
         <div className='bagDetailViewContainer'>
             <div className="scrollTip relative detailsCarouselLg" onScroll={checkScroll}>
                 <div className="absoluteScroll">
-                    {loading && <Loader />}
+                    {loading && <Skeleton className='skelsList' />}
                     {/* change Img */}
                     {bg?.model_image &&
                         <div onClick={()=>zoomer(bg.model_image)} >
@@ -98,7 +99,7 @@ const BagDetails = () => {
                 </div>
             </div>
             <div className='detailsCarouselSm'>
-                {loading && <Loader />}
+                {loading && <Skeleton className='skelsList' />}
                 {/* change Img */}
                 <Carousel 
                     activeIndex={index} 
@@ -133,6 +134,17 @@ const BagDetails = () => {
             <div className='bagDetails'>
                 {bg && 
                     <div className="bagDetailsContent">
+                        {loading && 
+                            <div>
+                                <Skeleton height={100} />
+                                <div className="pt-3">
+                                    <Skeleton height={50} />
+                                </div>
+                                <div className="pt-3">
+                                    <Skeleton height={20} />
+                                </div>
+                            </div>
+                        }
                         <div className="twoEquo">
                             <small>
                                 BG{id ? id : ""}

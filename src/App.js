@@ -10,7 +10,7 @@ import AllBags from "./AllBags";
 import Success from "./Success";
 import StripeCheckout from "./StripeCheckout";
 import Unsubscribe from "./Unsubscribe";
-
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function App() {
     return (

@@ -21,7 +21,9 @@ const NavBar = () => {
     const {wish} = wishAdd
 
     useEffect(()=>{
-        dispatch(allBagsAction(undefined,{search,page:1}))
+        if(searchOpen){
+            dispatch(allBagsAction(undefined,{search,page:1}))
+        }
     },[search])
 
     useEffect(() => {
@@ -133,7 +135,7 @@ const NavBar = () => {
                         <input 
                             value={search}
                             onChange={(e)=>setSearch(e.target.value)}
-                            autoFocus type="text" placeholder='Search Iconic Bags' />
+                            autoFocus type="text" placeholder='Search' />
                     </div>
                     <img onClick={()=>setSearchOpen(false)} className='cancelSearch' width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/20/delete-sign.png" alt="delete-sign"/>
                 </div>

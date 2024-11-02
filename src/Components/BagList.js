@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Loader from './Loader'
 import Empty from './Empty'
+import SkeletonLoader from './SkeletonLoader'
 
 const BagList = ({loading,data}) => {
     return (
         <div className='bagListContainer'>
-            {loading && <Loader />}
+            {loading && <SkeletonLoader />}
             {(data && data.length > 0) ? 
                 data.map(data =>(
                     <div className="theContent" key={data.id + parseInt(process.env.REACT_APP_CONSTANT)}>
@@ -29,7 +29,9 @@ const BagList = ({loading,data}) => {
                 ))
             :
                 <div className='p-4'>
-                    <Empty msg={"Can't find an item"} />
+                    {!loading &&
+                        <Empty msg={"Can't find an item"} />
+                    }
                 </div>
             }
         </div>

@@ -83,8 +83,13 @@
 
 
 
-
-
+.skels{
+    max-height: 292px;
+    height: 100%;
+}
+.skelsList{
+    min-height: 500px;
+}
 
 /* Footer */
 .Footer{
