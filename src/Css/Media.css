@@ -42,6 +42,12 @@
         padding-top: 20px;
     }
 }
+@media (max-width: 820px) {
+    .logoContainer a,
+    .logoContainer span.pointer{
+        display: none;
+    }
+}
 @media (max-width: 767px) {
     .cartContent{
         padding: 30px 15px;
@@ -49,10 +55,7 @@
     .rightSideContents{
         padding:30px 15px;
     }
-    .logoContainer a,
-    .logoContainer span.pointer{
-        display: none;
-    }
+    
     .Logo{
         font-size: 25px;
     }
@@ -169,9 +172,6 @@
     .leftAutoBeen{
         padding: 80px 15px 25px 15px;
     }
-    .landing{
-        margin: 50px auto;
-    }
     .searchInputContainer{
         margin: 10px 35px 0 10px;
         padding: 5px 0 ;
@@ -183,7 +183,7 @@
         padding: 20px 0 10px 15px;
     }
     .Logo{
-        font-size: 19px;
+        font-size: 17px;
     }
     .theContent{
         padding: 10px;
@@ -193,5 +193,10 @@
     }
     .Copyright .standardWidth{
         padding: 15px ;
+    }
+}
+@media (max-width: 350px) {
+    .Logo{
+        font-size: 12px;
     }
 }
