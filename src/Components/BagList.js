@@ -21,7 +21,7 @@ const BagList = ({loading,data}) => {
                                     ${data.price.toFixed(2)}
                                 </div>
                                 <Link to={`/product/details/${data.id + parseInt(process.env.REACT_APP_CONSTANT)}`}>
-                                    View this bag
+                                    View this item
                                 </Link>
                             </div>
                         </Link>

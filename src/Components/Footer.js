@@ -34,7 +34,7 @@ const Footer = () => {
                                 HELP
                             </h1>
                             <div className="footerBody">
-                                Our Client Advisors are available to 
+                                Our customer service is available to 
                                 assist you by phone at <a className='anchor' href="tel:+17086633189">+1 (708) 663-3189</a>
                                 . You can also <a className='anchor' href="mailto:kleopatravargas@gmail.com">email us</a>.
                             </div>

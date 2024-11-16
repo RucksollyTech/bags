@@ -77,7 +77,7 @@ const ZoomModal = ({setShow,zoom,...props}) => {
                                         draggable="false"
                                         onClick={()=>zoomControl("in")}
                                         src={`${process.env.REACT_APP_BASE_URL}${i}`} 
-                                        alt="Bag" 
+                                        alt="Item" 
                                     />
                                 </motion.div>
                             </Carousel.Item>

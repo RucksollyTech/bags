@@ -67,9 +67,7 @@ const Cart = () => {
     }
     const submitHandler = (e)=>{
         e.preventDefault()
-        if(!formData?.size){
-            return
-        }
+        
         const my_data = {
             items: {
                 ...formData, 
@@ -331,7 +329,7 @@ const Cart = () => {
                 
                 <Modal.Body>
                     <form onSubmit={submitHandler}>
-                        <div className="checkOut pt-4">
+                        {/* <div className="checkOut pt-4">
                             <div className="form-group ">
                                 <label className='font_17 text-danger'>Enter your size</label>
                                 <input
@@ -343,7 +341,7 @@ const Cart = () => {
                                     placeholder="Eg: XXL"
                                 />
                             </div>
-                        </div>
+                        </div> */}
                         <div className="font_17 pt-4">
                             Shipping Details
                         </div>
@@ -355,16 +353,8 @@ const Cart = () => {
                                         {checkForTripDetails.items.name}
                                     </div>
                                     <div className="form-group">
-                                        <label>Delivery address</label>
+                                        <label>Street address</label>
                                         {checkForTripDetails.items.users_address}
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Email address</label>
-                                        {checkForTripDetails.items.email}
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Phone Number</label>
-                                        {checkForTripDetails.items.phone}
                                     </div>
                                     <div className="form-group">
                                         <label>City</label>
@@ -383,13 +373,24 @@ const Cart = () => {
                                         {checkForTripDetails.items.zipcode}
                                     </div>
                                     <div className="form-group">
+                                        <label>Email</label>
+                                        {checkForTripDetails.items.email}
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Cell Number</label>
+                                        {checkForTripDetails.items.phone}
+                                    </div>
+                                    <div className="form-group">
                                         <span onClick={Edit} className='px-3 text-primary btn btn-sm btn-outline-primary'>
                                             Edit
                                         </span>
                                     </div>
                                 </div>
                                 <div className="mt-4">
-                                    <button role='submit' disabled={!formData.size} className="productButton">
+                                    {/* <button role='submit' disabled={!formData.size} className="productButton">
+                                        Proceed to checkout
+                                    </button> */}
+                                    <button role='submit' className="productButton">
                                         Proceed to checkout
                                     </button>
                                 </div>
@@ -408,50 +409,24 @@ const Cart = () => {
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Delivery address</label>
+                                    <label>Street address</label>
                                     <input
                                     required 
                                     value={formData.users_address} 
                                     onChange={(e)=>setFormData({...formData,users_address:e.target.value})}
                                     type="text" className="form-control" 
-                                    placeholder="Enter delivery address"
+                                    placeholder="Enter street address"
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>Email address</label>
-                                    <input
-                                    required 
-                                    value={formData.email}
-                                    onChange={(e)=>setFormData({...formData,email:e.target.value})}
-                                    type="email" 
-                                    className="form-control" 
-                                    placeholder="Enter email"
-                                    />
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number</label>
-                                    <input
-                                        required 
-                                        value={formData.phone}
-                                        onChange={(e)=>setFormData({...formData,phone:e.target.value})} 
+                                    <label>City</label>
+                                    <input 
+                                        required
                                         type="text" 
                                         className="form-control" 
-                                        placeholder="Enter your phone number"
+                                        value={formData.city}
+                                        onChange={(e)=>setFormData({...formData,city:e.target.value})}
                                     />
-                                </div>
-                                <div className="form-group">
-                                    <label>Country</label>
-                                    <select 
-                                        id="inputState" 
-                                        className="form-control"
-                                        value={formData.country}
-                                        onChange={(e)=>setFormData({...formData,country:e.target.value})}
-                                        required
-                                    >
-                                        <option value="">Choose...</option>
-                                        <option value='USA'>USA</option>
-                                    </select>
                                 </div>
                                 <div className="form-group">
                                     <label>State</label>
@@ -469,14 +444,17 @@ const Cart = () => {
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label>City</label>
-                                    <input 
+                                    <label>Country</label>
+                                    <select 
+                                        id="inputState" 
+                                        className="form-control"
+                                        value={formData.country}
+                                        onChange={(e)=>setFormData({...formData,country:e.target.value})}
                                         required
-                                        type="text" 
-                                        className="form-control" 
-                                        value={formData.city}
-                                        onChange={(e)=>setFormData({...formData,city:e.target.value})}
-                                    />
+                                    >
+                                        <option value="">Choose...</option>
+                                        <option value='USA'>USA</option>
+                                    </select>
                                 </div>
                                 <div className="form-group">
                                     <label>Zip Code</label>
@@ -486,6 +464,29 @@ const Cart = () => {
                                         className="form-control" 
                                         value={formData.zipcode}
                                         onChange={(e)=>setFormData({...formData,zipcode:e.target.value})}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email</label>
+                                    <input
+                                    required 
+                                    value={formData.email}
+                                    onChange={(e)=>setFormData({...formData,email:e.target.value})}
+                                    type="email" 
+                                    className="form-control" 
+                                    placeholder="Enter email"
+                                    />
+                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div className="form-group">
+                                    <label>Cell Number</label>
+                                    <input
+                                        required 
+                                        value={formData.phone}
+                                        onChange={(e)=>setFormData({...formData,phone:e.target.value})} 
+                                        type="text" 
+                                        className="form-control" 
+                                        placeholder="Enter your cell number"
                                     />
                                 </div>
                                 <div className="input-group mt-3 centerY">
@@ -502,7 +503,10 @@ const Cart = () => {
                                     </div>
                                 </div>
                                 <div className="mt-4">
-                                    <button disabled={!formData.size} role='submit' className='productButton'>
+                                    {/* <button disabled={!formData.size} role='submit' className='productButton'>
+                                        Proceed to checkout
+                                    </button> */}
+                                    <button role='submit' className='productButton'>
                                         Proceed to checkout
                                     </button>
                                 </div>

@@ -21,7 +21,7 @@ const Home = () => {
                         </h1>
                     </div>
                     <div className="pt-3 font_14">
-                        Kleopatra Vargas is a top online fashion store for Kids & adults of all gender. 
+                        Kleopatra Vargas is an online fashion store for Kids & adults of all gender. 
                         Shop dresses, hoodies and jewelries, and more. Affordable fashion online!
                     </div>
                 </div>
