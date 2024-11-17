@@ -76,15 +76,15 @@ const Wishlist = () => {
                                             Color
                                         </span>
                                         <span>
-                                            {x.color || "--"}
+                                            {x.colorSelect || "--"}
                                         </span>
                                     </div>
                                     <div className=" pt-1 font_12 twoEquo">
                                         <span>
-                                            Material
+                                            Size
                                         </span>
                                         <span>
-                                            {x.material || "--"}
+                                            {x.size || "--"}
                                         </span>
                                     </div>
                                     <div className="font_12 py-3">

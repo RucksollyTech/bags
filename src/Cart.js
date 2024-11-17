@@ -22,9 +22,8 @@ const Cart = () => {
     const [itemToGo2, setItemToGo2] = useState()
     const [checkForTripDetails,setCheckForTripDetails] = useState(JSON.parse(localStorage.getItem(`checkOutUserInfo`)))
     const [formData, setFormData] = useState(
-        checkForTripDetails ? {...checkForTripDetails.items,size: ""} :{
+        checkForTripDetails ? {...checkForTripDetails.items} :{
             name: '',
-            size: '',
             users_address: '',
             email: '',
             phone: '',
@@ -70,7 +69,7 @@ const Cart = () => {
         
         const my_data = {
             items: {
-                ...formData, 
+                ...formData,
                 bag: cart,
                 price : calculator() + parseInt(DELIVERY_FEE),
                 counter : Counter(cart) ? Counter(cart) : 1 ,
@@ -151,15 +150,15 @@ const Cart = () => {
                                             Color
                                         </span>
                                         <span>
-                                            {item.color || "--"}
+                                            {item.colorSelect || "--"}
                                         </span>
                                     </div>
                                     <div className="twoEquo pt-1">
                                         <span>
-                                            Material
+                                            Size
                                         </span>
                                         <span>
-                                            {item.material || "--"}
+                                            {item.size || "--"}
                                         </span>
                                     </div>
                                     
@@ -302,7 +301,7 @@ const Cart = () => {
                             
                         </div>
                         <div className="sticky-bottom bg-white">
-                            <button onClick={()=>history(`/product/details/${itemToGo2?.id}`)} className='productButton'>
+                            <button onClick={()=>history(`/product/details/${itemToGo2?.id + parseInt(process.env.REACT_APP_CONSTANT)}`)} className='productButton'>
                                 View Product Page
                             </button>
                         </div>

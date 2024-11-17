@@ -22,7 +22,11 @@ const BagDetails = () => {
     const [theHeight, setTheHeight] = useState(false)
     const [show, setShow] = useState(false)
     const [zoom, setZoom] = useState(false)
+    const [isColorNotSet, setIsColorNotSet] = useState(false)
+    const [isSizeNotSet, setIsSizeNotSet] = useState(false)
     const [index, setIndex] = useState(0);
+    const [active, setActive] = useState("");
+    const [size, setSize] = useState("");
 
     const bag = useSelector(state => state.bag)
     const {loading,bag:bg} = bag
@@ -35,7 +39,8 @@ const BagDetails = () => {
 
 
     const addToCart = ()=>{
-        if (!CheckInCart(bg,cart)) AddToCart(bg,dispatch,cart)
+        
+        if (!CheckInCart(bg,cart)) AddToCart(bg,dispatch,cart,active,size)
     }
     const handleSelect = (selectedIndex) => {
         setIndex(selectedIndex);
@@ -48,10 +53,27 @@ const BagDetails = () => {
     }
 
     const toggler = () => {
-        addToCart()
-        setShowSideBar(!showSideBar)
-        localStorage.setItem(`hightItems`, JSON.stringify(showSideBar ? theHeight : 51))
-        dispatch(hightAddAction())
+        setIsColorNotSet(false)
+        setIsSizeNotSet(false)
+        if(active && size){
+            addToCart()
+            setShowSideBar(!showSideBar)
+            localStorage.setItem(`hightItems`, JSON.stringify(showSideBar ? theHeight : 51))
+            dispatch(hightAddAction())
+        }else{
+            !size && setIsSizeNotSet(true);
+            !active && setIsColorNotSet(true);
+        }
+    }
+    const handleAddToWishList = ()=>{
+        setIsColorNotSet(false)
+        setIsSizeNotSet(false)
+        if((active && size) || CheckWishList(bg,wish)){
+            AddToWishList(bg,dispatch,wish,active,size)
+        }else{
+            !size && setIsSizeNotSet(true);
+            !active && setIsColorNotSet(true);
+        }
     }
     const togglerSideBar = () => {
         setShowSideBarTwo(!showSideBarTwo)
@@ -151,7 +173,7 @@ const BagDetails = () => {
                             </small>
                             <span>
                                 {/* <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/like--v1.png" alt="like--v1"/> */}
-                                <img className='pointer' width="20" onClick={()=>AddToWishList(bg,dispatch,wish)} height="20" src={`https://img.icons8.com/material-${CheckWishList(bg,wish) ? "rounded" : "outlined"}/20/19110B/like--v1.png`} alt="like--v1"/>
+                                <img className='pointer' width="20" onClick={handleAddToWishList} height="20" src={`https://img.icons8.com/material-${CheckWishList(bg,wish) ? "rounded" : "outlined"}/20/19110B/like--v1.png`} alt="like--v1"/>
                             </span>
                         </div>
                         <div>
@@ -161,6 +183,32 @@ const BagDetails = () => {
                             <div>
                                 ${bg.price.toFixed(2)}
                             </div>
+                        </div>
+                        <div className={`flex ${isColorNotSet && "activated p-1 mt-1"}`}>
+                        
+                            <span className={`productName ${isColorNotSet && "text-danger bold7"}`}>
+                                Colors:    
+                            </span>
+                            <span className='flexProductName'>
+                                {bg.color.split(",").map((color)=>(
+                                    <span onClick={()=>setActive(color)} key={color} className={`productColorDuct ${active === color ? "active" : ""}`} style={{backgroundColor: color}}></span>
+                                ))}
+                            </span>
+                        </div>
+                        
+                        <div className={`flex ${isSizeNotSet && "activated p-1 mt-1"}`}>
+                            <span className={`productName ${isSizeNotSet && "text-danger bold7"}`}>
+                                Enter your size:    
+                            </span>
+                            <span className='flexProductName form-group'>
+                                <input
+                                    value={size}
+                                    onChange={(e)=>setSize(e.target.value)} 
+                                    type="text" 
+                                    className="form-control" 
+                                    placeholder="Eg: XXL"
+                                />
+                            </span>
                         </div>
                         <div className="productButtonContainer">
                             <button onClick={toggler} className='productButton'>
@@ -224,9 +272,15 @@ const BagDetails = () => {
 
                     </div>
                 :
-                    <div className="leftAutoBeen bold6 relative">
-                        Not added to cart. <span className="text-primary pointer">Add to cart</span>
-                        <img className='cancelShw' onClick={toggler} width="20" height="20" src="https://img.icons8.com/material-rounded/20/delete-sign.png" alt="delete-sign"/>
+                    <div className="leftAutoBeen relative">
+                        <div className="flex">
+                            <span className='bold6'>
+                                Not added to cart. <span className="text-primary pointer">Add to cart</span>
+                            </span>
+                            <span className='ml_auto'>
+                                <img className='cursor-pointer' onClick={toggler} width="20" height="20" src="https://img.icons8.com/material-rounded/20/delete-sign.png" alt="delete-sign"/>
+                            </span>
+                        </div>
                     </div>
                 }
             </div>
